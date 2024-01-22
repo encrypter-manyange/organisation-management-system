@@ -79,7 +79,9 @@ class AuthenticationController extends Controller
         $member->phone = $request->phone;
         $member->address = $request->address;
         $member->save();
-        return \Illuminate\Support\Facades\Response::json($member, 200);
+        return \Illuminate\Support\Facades\Response::json([
+            "data"=>$member
+        ], 200);
 
     }
     public function login_member(Request  $request){
