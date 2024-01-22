@@ -7,6 +7,7 @@ use App\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AuthenticationController extends Controller
 {
@@ -60,6 +61,8 @@ class AuthenticationController extends Controller
         $member = new Member();
         $member->first_name = $request->first_name;
         $member->middle_name = $request->middle_name;
+        $member->email = $request->email;
+        $member->password = Hash::make($request->password);
         $member->last_name = $request->last_name;
         $member->id_number = $request->id_number;
         $member->dob = $request->dob;
@@ -69,6 +72,24 @@ class AuthenticationController extends Controller
         $member->address = $request->address;
         $member->save();
         return \Illuminate\Support\Facades\Response::json($member, 200);
+
+    }
+    public function login_member(Request  $request){
+
+        $email = $request->email;
+        $user = Member::where("email",$email);
+        $hashedPassword = $request->password;
+        if (Hash::check($user->password, $hashedPassword))
+        {
+            return \Illuminate\Support\Facades\Response::json($user, 200);
+        }
+        else{
+            return \Illuminate\Support\Facades\Response::json([
+                "message"=>"Account Does Not Exist!"
+            ], 404);
+
+        }
+
 
     }
 

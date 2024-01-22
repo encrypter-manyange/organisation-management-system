@@ -27,6 +27,7 @@ Route::post('/signin', [\App\Http\Controllers\AuthenticationController::class, '
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('contributions/{member_id}', [\App\Http\Controllers\AuthenticationController::class, 'contributions']);
     Route::post('member/register', 'AuthenticationController@store_api')->name('store-member-api');
+    Route::post('member/login', 'AuthenticationController@login_member')->name('login-member');
     Route::get('/profile', function(Request $request) {
         return auth()->user();
     });
