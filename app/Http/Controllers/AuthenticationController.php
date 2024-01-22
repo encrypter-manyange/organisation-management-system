@@ -78,7 +78,7 @@ class AuthenticationController extends Controller
 
         $email = $request->email;
         $user = Member::where("email",$email)->get();
-        if (is_null($user)){
+        if (count($user)){
             return \Illuminate\Support\Facades\Response::json([
                 "message"=>$user
             ], 403);
