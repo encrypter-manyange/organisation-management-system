@@ -2,12 +2,15 @@
 
 namespace App;
 
+use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
+
 
 class User extends Authenticatable
 {
-    use  Notifiable;
+    use HasApiTokens, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -57,4 +60,12 @@ class User extends Authenticatable
         return $count > 0;
 
     }
+//
+//    public function createToken($name = ‘api-token’){
+//        return $this->createApiAccessToken($name);
+//    }
+//    protected function createApiAccessToken($name){
+//        return $this->setApiToken($name, Hash::make(str_random(40)));
+//
+//    }
 }

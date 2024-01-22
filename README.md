@@ -13,3 +13,10 @@ The application has the following features available:
 - Login the application with:
 - username: admin@oms.com
 - password: Sodium2195!
+
+## Installing Dependencies for REST API Access
+- composer require laravel/sanctum
+- php artisan vendor:publish — provider=”Laravel\Sanctum\SanctumServiceProvider”
+
+## API Documentation for app integration can be Accessed Through the link below:
+https://documenter.getpostman.com/view/5546128/2s9YymGQ1e
