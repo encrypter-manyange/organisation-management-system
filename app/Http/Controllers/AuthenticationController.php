@@ -77,7 +77,7 @@ class AuthenticationController extends Controller
     public function login_member(Request  $request){
 
         $email = $request->email;
-        $user = Member::where("email",$email);
+        $user = Member::where("email",$email)->get();
         $hashedPassword = $request->password;
         if (Hash::check($user->password, $hashedPassword))
         {
