@@ -78,6 +78,11 @@ class AuthenticationController extends Controller
 
         $email = $request->email;
         $user = Member::where("email",$email)->get();
+        if (is_null($user->email)){
+            return \Illuminate\Support\Facades\Response::json([
+                "message"=>"Account Does Not Exist!"
+            ], 403);
+        }
         $hashedPassword = $request->password;
         if (Hash::check($user->password, $hashedPassword))
         {
@@ -86,7 +91,7 @@ class AuthenticationController extends Controller
         else{
             return \Illuminate\Support\Facades\Response::json([
                 "message"=>"Account Does Not Exist!"
-            ], 404);
+            ], 503);
 
         }
 
