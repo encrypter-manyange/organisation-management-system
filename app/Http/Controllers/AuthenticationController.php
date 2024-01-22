@@ -42,7 +42,9 @@ class AuthenticationController extends Controller
             return \Illuminate\Support\Facades\Response::json(["data"=>'Credentials not match'], 403);
         }
         return \Illuminate\Support\Facades\Response::json([
-            'data' => auth()->user()->createToken('API Token')->plainTextToken
+            "data"=>[
+                'token' => auth()->user()->createToken('API Token')->plainTextToken
+            ]
         ], 200);
 
     }
@@ -53,7 +55,11 @@ class AuthenticationController extends Controller
         auth()->user()->tokens()->delete();
 
         return [
-            'data' => 'Tokens Revoked'
+            ["data"=>[
+                'token' => 'Tokens Revoked'
+            ]
+            ]
+
         ];
     }
 
