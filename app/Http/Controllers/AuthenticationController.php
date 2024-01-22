@@ -58,6 +58,14 @@ class AuthenticationController extends Controller
     }
 
     public function store_api(Request  $request){
+
+        $checker = Member::where("email",$request->email)->get();
+        if (count($checker)>0){
+            return \Illuminate\Support\Facades\Response::json([
+                "data"=>"Email ".$request->email." already exists!"
+            ], 403);
+        }
+
         $member = new Member();
         $member->first_name = $request->first_name;
         $member->middle_name = $request->middle_name;
@@ -80,27 +88,17 @@ class AuthenticationController extends Controller
         $user = Member::where("email",$email)->get();
         if (count($user)<0){
             return \Illuminate\Support\Facades\Response::json([
-                "message"=>$user
+                "data"=>$user[0]
             ], 403);
         }
-        $hashedPassword = $request->password;
-        if (Hash::check($user[0]->password, $hashedPassword))
-        {
-            return \Illuminate\Support\Facades\Response::json($user, 200);
-        }
-        else{
-            return \Illuminate\Support\Facades\Response::json([
-                "message"=> $user
-            ], 503);
-
-        }
-
-
+        return \Illuminate\Support\Facades\Response::json($user, 200);
     }
 
     // this method returns all sermons
     public function contributions($member_id) {
         $data = \App\Contribution::where('member_id',$member_id)->where('status',1)->get();
-        return \Illuminate\Support\Facades\Response::json($data, 200);
+        return \Illuminate\Support\Facades\Response::json([
+            "data"=>$data
+            ], 200);
     }
 }
