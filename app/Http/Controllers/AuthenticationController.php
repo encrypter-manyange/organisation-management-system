@@ -26,7 +26,7 @@ class AuthenticationController extends Controller
             'email' => $attr['email']
         ]);
         return \Illuminate\Support\Facades\Response::json([
-            'token' => $user->createToken('tokens')->plainTextToken
+            'data' => $user->createToken('tokens')->plainTextToken
 
         ]);
     }
@@ -39,10 +39,10 @@ class AuthenticationController extends Controller
         ]);
 
         if (!Auth::attempt($attr)) {
-            return \Illuminate\Support\Facades\Response::json(["error"=>'Credentials not match'], 401);
+            return \Illuminate\Support\Facades\Response::json(["data"=>'Credentials not match'], 403);
         }
         return \Illuminate\Support\Facades\Response::json([
-            'token' => auth()->user()->createToken('API Token')->plainTextToken
+            'data' => auth()->user()->createToken('API Token')->plainTextToken
         ], 200);
 
     }
@@ -53,7 +53,7 @@ class AuthenticationController extends Controller
         auth()->user()->tokens()->delete();
 
         return [
-            'message' => 'Tokens Revoked'
+            'data' => 'Tokens Revoked'
         ];
     }
 
