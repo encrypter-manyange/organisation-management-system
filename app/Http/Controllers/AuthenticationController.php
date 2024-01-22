@@ -90,7 +90,7 @@ class AuthenticationController extends Controller
         }
         else{
             return \Illuminate\Support\Facades\Response::json([
-                "message"=>"Account Does Not Exist!"
+                "message"=> $user
             ], 503);
 
         }
