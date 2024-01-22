@@ -84,7 +84,7 @@ class AuthenticationController extends Controller
             ], 403);
         }
         $hashedPassword = $request->password;
-        if (Hash::check($user->password, $hashedPassword))
+        if (Hash::check($user[0]->password, $hashedPassword))
         {
             return \Illuminate\Support\Facades\Response::json($user, 200);
         }
