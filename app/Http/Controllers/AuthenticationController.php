@@ -80,7 +80,7 @@ class AuthenticationController extends Controller
         $user = Member::where("email",$email)->get();
         if (is_null($user)){
             return \Illuminate\Support\Facades\Response::json([
-                "message"=>"Account Does Not Exist!"
+                "message"=>$user
             ], 403);
         }
         $hashedPassword = $request->password;
