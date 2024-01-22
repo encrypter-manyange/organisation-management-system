@@ -20,3 +20,6 @@ The application has the following features available:
 
 ## API Documentation for app integration can be Accessed Through the link below:
 https://documenter.getpostman.com/view/5546128/2s9YymGQ1e
+
+## How to Access the Test System
+The Public Dashboard can be accessed via: https://keeysc.com
