@@ -91,7 +91,9 @@ class AuthenticationController extends Controller
                 "data"=>$user[0]
             ], 403);
         }
-        return \Illuminate\Support\Facades\Response::json($user, 200);
+        return \Illuminate\Support\Facades\Response::json(
+            ["data"=>$user[0]]
+            , 200);
     }
 
     // this method returns all sermons
