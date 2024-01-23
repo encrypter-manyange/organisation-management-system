@@ -42,6 +42,7 @@
                         <tr>
                             <th>#</th>
                             <th>Fullname</th>
+                            <th>Email Address</th>
                             <th>ID Number</th>
                             <th>Date of Birth</th>
                             <th>Gender</th>
@@ -62,6 +63,7 @@
                                 {{$member->first_name.' '.$member->middle_name.' '.$member->last_name}}
                                 </a>
                             </td>
+                            <td>{{$member->email}}</td>
                             <td>{{$member->id_number}}</td>
                             <td>{{$member->dob}}</td>
                             <td>{{$member->gender}}</td>

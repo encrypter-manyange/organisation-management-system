@@ -35,6 +35,10 @@
                             <td>{{$member->first_name.' '.$member->middle_name.' '.$member->last_name}}</td>
                         </tr>
                         <tr>
+                            <th>Email Address</th>
+                            <td>{{$member->email}}</td>
+                        </tr>
+                        <tr>
                             <th>ID Number</th>
                             <td>{{$member->id_number}}</td>
                         </tr>
