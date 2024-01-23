@@ -164,6 +164,12 @@
                                                     </div>
                                                     <div class="row my-2">
                                                         <div class="col-md-12">
+                                                            <label for="">Email Address <sup style="color: indianred"><b>required</b></sup></label>
+                                                            <input type="text" value="{{$member->email}}" name="email" placeholder="Enter Email Address" class="form-control" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row my-2">
+                                                        <div class="col-md-12">
                                                             <label for="">Phone Number <sup style="color: indianred"><b>required</b></sup></label>
                                                             <input type="text" value="{{$member->phone}}" name="phone" placeholder="+263783926320" class="form-control" required>
                                                         </div>

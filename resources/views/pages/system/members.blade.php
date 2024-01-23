@@ -140,6 +140,12 @@
                         </div>
                         <div class="row my-2">
                             <div class="col-md-12">
+                                <label for="">Email Address <sup style="color: indianred"><b>required</b></sup></label>
+                                <input type="text"  name="email" placeholder="Enter Email Address" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="row my-2">
+                            <div class="col-md-12">
                                 <label for="">ID Number <sup style="color: indianred"><b>required</b></sup></label>
                                 <input type="text" name="id_number" placeholder="63-2398400F60" class="form-control" required>
                             </div>

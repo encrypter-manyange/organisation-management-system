@@ -44,6 +44,7 @@ class MemberController extends Controller
         $member->gender = $request->gender;
         $member->marital_status = $request->marital_status;
         $member->phone = $request->phone;
+        $member->email = $request->email;
         $member->address = $request->address;
         $member->save();
         return redirect()->back()->with('status', 'Member Details Successfully Saved!');
@@ -53,6 +54,7 @@ class MemberController extends Controller
     {
         $member =  Member::find($request->id);
         $member->first_name = $request->first_name;
+        $member->email = $request->email;
         $member->middle_name = $request->middle_name;
         $member->last_name = $request->last_name;
         $member->id_number = $request->id_number;
