@@ -195,6 +195,7 @@
                                                     <div class="row my-2">
                                                         <div class="col-md-12">
                                                             <label for="">Date of Birth</label>
+                                                            <input type="hidden" name="id" value="{{$member->id}}">
                                                             <input type="date" value="{{$member->dob}}" name="dob" class="form-control">
                                                         </div>
                                                     </div>
